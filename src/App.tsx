@@ -245,22 +245,6 @@ export default function App() {
                 ))}
               </div>
 
-              {/* Consolidated Download */}
-              <div className="bg-gray-900 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="space-y-2 text-center md:text-left">
-                  <h3 className="text-xl font-bold">Relatório Consolidado</h3>
-                  <p className="text-gray-400 text-sm max-w-md">
-                    Gere um PDF único contendo os dados cadastrais da empresa e os links diretos para validação das certidões externas.
-                  </p>
-                </div>
-                <button
-                  onClick={handleDownloadAll}
-                  className="w-full md:w-auto bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-all"
-                >
-                  <Download className="w-5 h-5" />
-                  Gerar Pack de Certidões
-                </button>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
