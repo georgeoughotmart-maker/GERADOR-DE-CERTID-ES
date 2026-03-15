@@ -68,6 +68,11 @@ export default function App() {
         body: JSON.stringify({ cnpj: cleanCnpj }),
       });
 
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error('O servidor retornou uma resposta inválida (HTML em vez de JSON). Isso geralmente acontece quando as rotas de API não estão configuradas corretamente no ambiente de hospedagem.');
+      }
+
       const result = await response.json();
 
       if (!response.ok) {
