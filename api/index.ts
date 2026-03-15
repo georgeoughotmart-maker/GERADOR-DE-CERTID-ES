@@ -4,17 +4,32 @@ import apiHandler from "../src/api/handler";
 
 const app = express();
 
-console.log("API Bootstrapping...");
-
 app.use(cors());
 app.use(express.json());
 
-// No Vercel, a requisição já chega com o path completo (ex: /api/consultar)
-// O handler já define rotas como /consultar, então montamos ele na raiz ou em /api
-// Para ser seguro, montamos em ambos ou tratamos o prefixo
+// Log de depuração para ver como o Vercel está passando a URL
+app.use((req, res, next) => {
+  console.log(`[API Debug] Method: ${req.method}, URL: ${req.url}, OriginalURL: ${req.originalUrl}`);
+  next();
+});
+
+// Teste direto
+app.get("/api/test", (req, res) => {
+  res.json({ 
+    message: "API is working", 
+    url: req.url,
+    originalUrl: req.originalUrl,
+    env: process.env.NODE_ENV
+  });
+});
+
+// Monta o handler
+// Se o Vercel reescreve /api/consultar para /api, o req.url pode ser /consultar ou /api/consultar
 app.use("/api", apiHandler);
-app.use("/", apiHandler); // Fallback para quando o rewrite já removeu o prefixo ou para chamadas diretas
+app.use("/", apiHandler); // Tenta ambos para garantir
 
 export default app;
+
+
 
 
