@@ -1,0 +1,5 @@
+{
+  "name": "Certidão Express",
+  "description": "Consulta de dados cadastrais e geração de certidões simplificadas via CNPJ.",
+  "requestFramePermissions": []
+}
