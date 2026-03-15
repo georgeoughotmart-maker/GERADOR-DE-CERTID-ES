@@ -1,6 +1,15 @@
-import appPromise from "../server";
+import express from "express";
+import cors from "cors";
+import apiHandler from "../src/api/handler";
 
-export default async (req: any, res: any) => {
-  const app = await appPromise;
-  return app(req, res);
-};
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+// No Vercel, o prefixo /api já é tratado pelo roteamento do vercel.json
+// Mas para garantir compatibilidade com o handler que espera sub-rotas:
+app.use("/api", apiHandler);
+
+export default app;
+

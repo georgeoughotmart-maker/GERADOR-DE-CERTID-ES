@@ -4,6 +4,11 @@ import PDFDocument from "pdfkit";
 
 const router = express.Router();
 
+// Health check for debugging
+router.get("/health", (req, res) => {
+  res.json({ status: "ok", environment: process.env.NODE_ENV, timestamp: new Date().toISOString() });
+});
+
 // API Route: Consultar CNPJ
 router.post("/consultar", async (req, res) => {
   const { cnpj } = req.body;
