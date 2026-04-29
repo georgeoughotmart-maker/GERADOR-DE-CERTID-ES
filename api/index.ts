@@ -59,6 +59,8 @@ app.get("/api/download/:cnpj", async (req, res) => {
     doc.fontSize(10).text("Links para validação oficial:");
     doc.text("- FGTS: https://consulta-crf.caixa.gov.br/");
     doc.text("- Trabalhista: https://www.tst.jus.br/certidao1");
+    doc.text("- Sefaz PE: https://efisco.sefaz.pe.gov.br/sfi_trb_gpf/PREmitirCertidaoNegativaNarrativaDebitoFiscal");
+    doc.text("- Receita Federal: https://servicos.receitafederal.gov.br/servico/certidoes/#/home/cnpj");
     
     doc.end();
   } catch (error: any) {

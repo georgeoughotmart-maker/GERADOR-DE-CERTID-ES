@@ -100,7 +100,7 @@ export default function App() {
       const portals = [
         "https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf",
         "https://www.tst.jus.br/certidao1",
-        "https://efisco.sefaz.pe.gov.br/sfi_trb_gcc/PREmitirCertidaoRegularidadeFiscal",
+        "https://efisco.sefaz.pe.gov.br/sfi_trb_gpf/PREmitirCertidaoNegativaNarrativaDebitoFiscal",
         "https://servicos.receitafederal.gov.br/servico/certidoes/#/home/cnpj"
       ];
 
@@ -113,7 +113,7 @@ export default function App() {
   const certificateTypes = [
     { id: 'fgts', name: 'FGTS (CRF)', organ: 'Caixa Econômica', url: 'https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf' },
     { id: 'tst', name: 'Trabalhista (CNDT)', organ: 'Tribunal Superior do Trabalho', url: 'https://www.tst.jus.br/certidao1' },
-    { id: 'sefaz', name: 'Fiscal Estadual', organ: 'Sefaz PE', url: 'https://efisco.sefaz.pe.gov.br/sfi_trb_gcc/PREmitirCertidaoRegularidadeFiscal' },
+    { id: 'sefaz', name: 'Fiscal Estadual', organ: 'Sefaz PE', url: 'https://efisco.sefaz.pe.gov.br/sfi_trb_gpf/PREmitirCertidaoNegativaNarrativaDebitoFiscal' },
     { id: 'receita', name: 'Fiscal Federal', organ: 'Receita Federal / PGFN', url: 'https://servicos.receitafederal.gov.br/servico/certidoes/#/home/cnpj' },
   ];
 
